@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+    "name":"Converter",
+    "version": "1.1",
+
+    "content_scripts": [{    
+			"matches": ["*://*/*"],
+            "js":["content_script.js"]
+        }],
+
+     "background": {
+        "scripts": [ "background.js" ]
+    },
+	
+	"icons": {
+		"32": "dial32.png",
+		"64": "dial64.png",
+		"128": "dial128.png"
+	},
+
+    "permissions":[ "tabs", "activeTab", "webNavigation", "storage" ],
+
+    "description": "Takes a user-highlighted number and shows that number converted into pounds. Very handy for browsing fitness forums.",
+
+    "browser_action": {
+        "default_title":"Converter"
+    },
+	
+	"options_page": "options.html",
+	
+	"commands": {
+		"Ctrl + Shift + A": { 
+		"suggested_key": {
+			"default": "Ctrl + Shift + A",
+			"mac": "Command + Shift + A"
+			},
+			"description": "Converts highlighted numbers to kg."	
+		}
+	}
+}
