@@ -1,17 +1,31 @@
 <html>
 	<head>
 		<title>Converter Options</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
+	<header class="navbar navbar-static-top" style="background-color: #F1F1F1;">
+			<h3 style="color: #F1F1F1;">found me!</h3>
+	</header>
 	<body>
-		<label>
-			Convert to metric units or freedom units?
-			<select id="units">
-				<option value="toLB">Convert kilograms to pounds (default)</option>
-				<option value="toKG">Convert pounds to kilograms</option>
-			</select>
-		</label>
-		<div id="status"></div>
-		<button id="save">Save</button>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 text-center">
+					<img src="dial128.png"/>
+				</div>
+				<div class="col-md-9">
+					<label>
+						Convert to metric units or freedom units?
+						<select class="form-control" id="units">
+							<option value="toLB">Convert kilograms to pounds (default)</option>
+							<option value="toKG">Convert pounds to kilograms</option>
+						</select>
+					</label>
+					<button type="button" class="button btn-default" id="save">Save</button>
+					<div class="alert alert-success" role="alert" id="status"></div>
+				</div>
+			</div>
+		</div>
 	</body>
 	<script src="options.js"></script>
 </html>

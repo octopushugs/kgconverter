@@ -7,9 +7,11 @@ function save_options() {
 	function() {
 		//Display something so user knows preferences got saved
 		var status = document.getElementById('status');
+		status.style.display = "block"; //necessary for using bootstrap
 		status.textContent = "Options saved!";
 		setTimeout(function() {
 			status.textContent = ' ';
+			status.style.display = "none";
 		}, 750);
 	});
 }
@@ -23,4 +25,5 @@ function restore_options() {
 	});
 }
 document.addEventListener('DOMContentLoaded', restore_options);
+document.getElementById('status').style.display = 'none';
 document.getElementById('save').addEventListener('click', save_options);
