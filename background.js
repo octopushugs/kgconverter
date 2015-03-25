@@ -17,10 +17,10 @@ chrome.commands.onCommand.addListener(function(command) { //wait for user input
 					var raw = parseFloat(response.selection);
 					if (!isNaN(raw)) { //make sure that raw is, in fact, a number before showing user anything
 						if(conversionFactor === 2.2){
-							alert(raw + " kilograms is equivalent to " + raw*conversionFactor + " pounds.");
+							alert(raw + " kilograms is equivalent to " + (raw*conversionFactor).toFixed(2) + " pounds.");
 						}
 						else if(conversionFactor === 0.45){
-							alert(raw + " pounds is equivalent to " + raw*conversionFactor + " kilograms.");
+							alert(raw + " pounds is equivalent to " + (raw*conversionFactor).toFixed(2) + " kilograms.";
 						}
 						else {
 							console.log("I'm confused :(");
