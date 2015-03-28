@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name":"Converter",
-    "version": "1.1",
+    "version": "1.2",
 
     "content_scripts": [{    
 			"matches": ["*://*/*"],
@@ -21,7 +21,7 @@
 
     "permissions":[ "tabs", "activeTab", "webNavigation", "storage" ],
 
-    "description": "Takes a user-highlighted number and shows that number converted into pounds. Very handy for browsing fitness forums.",
+    "description": "This extension makes browsing fitness forums a little easier. This will and convert kilograms to pounds and vice versa.",
 
     "browser_action": {
         "default_title":"Converter"

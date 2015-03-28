@@ -3,15 +3,13 @@ chrome.commands.onCommand.addListener(function(command) { //wait for user input
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		chrome.tabs.sendMessage(tabs[0].id, {trigger: "go"}, function(response) {
 			//handles user selection and manipulates it on response
-			var conversionFactor = 1;
+			var conversionFactor = 2.2; //conversion kg -> lbs is default behavior until user selects otherwise
 			//fetch user preferences
 			chrome.storage.sync.get("conversion", function(fetched) {
-				var tempCon = fetched.conversion;
-				if(tempCon.includes('toKG')) {
-					conversionFactor = 0.45;
-				} 
-				else {
-					conversionFactor = 2.2;
+				if(fetched.conversion != undefined) {
+					if(fetched.conversion.includes('toKG')) {
+						conversionFactor = 0.45;
+					}
 				}
 				if(response.selection) {
 					var raw = parseFloat(response.selection);
@@ -20,7 +18,7 @@ chrome.commands.onCommand.addListener(function(command) { //wait for user input
 							alert(raw + " kilograms is equivalent to " + (raw*conversionFactor).toFixed(2) + " pounds.");
 						}
 						else if(conversionFactor === 0.45){
-							alert(raw + " pounds is equivalent to " + (raw*conversionFactor).toFixed(2) + " kilograms.";
+							alert(raw + " pounds is equivalent to " + (raw*conversionFactor).toFixed(2) + " kilograms.");
 						}
 						else {
 							console.log("I'm confused :(");
